@@ -27,7 +27,13 @@ export default function Projects() {
       </motion.div>
 
       {/* 3 card sejajar */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className={`grid gap-6 ${
+        projects.length === 1
+          ? "grid-cols-1 max-w-sm mx-auto"
+          : projects.length === 2
+          ? "grid-cols-1 md:grid-cols-2 max-w-2xl mx-auto"
+          : "grid-cols-1 md:grid-cols-3"
+      }`}>
         {projects.map((project, index) => (
           <motion.div
             key={project.id}
